@@ -1,32 +1,37 @@
-🔧 Physics-Aware ICS/SCADA Anomaly Detection System
-📌 Overview
+Physics-Aware ICS/SCADA Anomaly Detection System
+<div align="center">
+Passive • Physics-Aware • Explainable • Production-Safe
+<img src="https://img.shields.io/badge/ICS%2FSCADA-Safe-green" /> <img src="https://img.shields.io/badge/Explainability-SHAP-blue" /> <img src="https://img.shields.io/badge/Accuracy-96%25-brightgreen" /> <img src="https://img.shields.io/badge/Deployment-Streamlit-orange" /> </div>
+What This Project Solves
 
-This project implements a physics-aware, explainable anomaly detection system for Industrial Control Systems (ICS/SCADA).
-It passively monitors sensor data from a thermal power plant environment and detects rare operational, physical, or cyber anomalies without disrupting production.
+Problem:
+Traditional cybersecurity tools interfere with live industrial systems and lack physical awareness.
 
-The solution combines Autoencoders, Isolation Forest, and XGBoost, along with SHAP-based explainability, and is deployed using an interactive Streamlit dashboard.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🏭 Problem Context
+Solution:
+A passive anomaly detection system that understands industrial physics, detects anomalies accurately, and explains every alert.
 
-Industrial Control Systems operate critical infrastructure and require:
-Near-zero downtime
-Safety-compliant monitoring
-Explainable alerts for operators
-Traditional cybersecurity solutions are unsuitable due to active intervention and lack of physical awareness. This system addresses these challenges using passive, physics-informed machine learning.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🧠 Solution Architecture
+Key Capabilities
+-
+<table> <tr> <td><b>Passive Monitoring</b><br>No control signal injection</td> <td><b>Physics Awareness</b><br>Energy & flow consistency</td> <td><b>Explainable AI</b><br>SHAP-based insights</td> <td><b>Production Ready</b><br>Streamlit deployment</td> </tr> </table>
+Architecture Overview
+ICS Sensors
+   ↓
+Preprocessing & Scaling
+   ↓
+Physics-Based Feature Engineering
+   ↓
+Autoencoder (Reconstruction Error)
+   ↓
+Isolation Forest (Structural Anomaly)
+   ↓
+XGBoost (Final Classification)
+   ↓
+SHAP Explainability
+   ↓
+Streamlit Operator Dashboard
 
-Data Flow Pipeline:
-ICS sensor data ingestion (passive)
-Data preprocessing & normalization
-Physics-based feature engineering
-Autoencoder anomaly scoring
-Isolation Forest structural anomaly detection
-XGBoost final anomaly classification
-SHAP explainability for detected anomalies
-Streamlit dashboard visualization
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-📁 Project Structure
+Project Structure
+<details> <summary><b>Click to expand folder structure</b></summary>
 📦 Round 3
 ├── app.py                         # Streamlit application (inference + SHAP)
 ├── enhanced_training_with_shap.py # Model fine-tuning & SHAP analysis
@@ -37,68 +42,53 @@ Streamlit dashboard visualization
 ├── thermal_power_ics_combined_dataset.xlsx
 ├── thermal_plant_preprocessed.xlsx
 └── README.md
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-⚙️ Models Used
-🔹 Autoencoder
-Learns normal operational behavior
-High reconstruction error indicates anomaly
-Physics-consistent latent representation
 
-🔹 Isolation Forest
-Unsupervised anomaly detection
-Identifies rare, structurally different patterns
+</details>
 
-🔹 XGBoost Classifier
-Final anomaly classification
-Uses raw features, physics-based features, and anomaly scores
-Handles non-linear interactions effectively
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🔬 Physics-Aware Feature Engineering
-The model incorporates physical system knowledge, including:
-Energy balance (Power input vs output)
-System efficiency metrics
+Models Used
+-
+Model	Purpose
+Autoencoder	Learn normal operational behavior
+Isolation Forest	Detect rare structural anomalies
+XGBoost	Final anomaly classification
+Physics-Aware Intelligence
+This system embeds real-world physical constraints, including:
+Energy balance (power input vs output)
+Thermal efficiency monitoring
 Flow–pressure–temperature consistency
-Control mismatches (pump speed vs valve position)
-Non-linear interaction features
-This ensures robust detection and meaningful explanations.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-📊 Model Performance
-Metric	Score
-Training Accuracy	99%
-Testing Accuracy	96%
-Anomaly Recall	High
-False Positives	Low
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Synthetic anomalies were introduced to ensure realistic evaluation.
+Actuator–sensor mismatch detection
+Non-linear physical interactions
+These constraints significantly reduce false positives and improve operator trust.
 
-🧠 Explainability (SHAP)
+Model Performance
+-
+<table> <tr><td><b>Training Accuracy</b></td><td>99%</td></tr> <tr><td><b>Testing Accuracy</b></td><td>96%</td></tr> <tr><td><b>Anomaly Recall</b></td><td>High</td></tr> <tr><td><b>False Positives</b></td><td>Low</td></tr> </table>
+Synthetic anomalies were injected to ensure realistic evaluation.
+Explainability (SHAP)
+Each detected anomaly includes:
+Feature-level contribution scores
+Direction of influence on prediction
+Operator-interpretable reasoning
+Audit-ready explanations for compliance
 
-SHAP is applied to XGBoost predictions
-Explains why a data point was flagged as anomalous
-Highlights key contributing parameters
-Enables operator trust and regulatory compliance
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🖥️ Streamlit Dashboard
-
-Features:
+Streamlit Dashboard
+Features 
+-
 Manual sensor data input
 Real-time anomaly prediction
-Anomaly severity score
+Anomaly severity scoring
 SHAP explanation plots
-Clean, operator-friendly Ui
-
-To run the dashboard:
+Operator-friendly UI
+Run locally
 streamlit run app.py
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🔐 Safety & Compliance
-
+Safety and Compliance
 Fully passive monitoring
 No control signal injection
 Safe for live industrial environments
 Designed for explainability and auditability
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🏁 Conclusion
+Conclusion
+-
 
 This project delivers a production-ready, explainable, physics-aware anomaly detection framework for ICS/SCADA systems.
-It bridges physical system understanding and advanced machine learning, enabling safe, accurate, and trustworthy monitoring of critical infrastructure.
+It successfully bridges physical system understanding with advanced machine learning, enabling safe, accurate, and trustworthy monitoring of critical infrastructure.
